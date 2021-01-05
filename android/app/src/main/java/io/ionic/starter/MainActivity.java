@@ -21,8 +21,10 @@ public class MainActivity extends BridgeActivity {
       // Additional plugins you've installed go here
       // Ex: add(TotallyAwesomePlugin.class);
     }});
-	
-	AppCenter.start(getApplication(), "ccea1fff-6b32-4f09-84e9-887badad548b",
-                  Analytics.class, Crashes.class);
+
+    if (!AppCenter.isConfigured()) {
+      AppCenter.start(getApplication(), "ccea1fff-6b32-4f09-84e9-887badad548b",
+              Analytics.class, Crashes.class);
+    }
   }
 }
